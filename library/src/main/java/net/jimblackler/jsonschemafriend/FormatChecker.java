@@ -1,8 +1,5 @@
 package net.jimblackler.jsonschemafriend;
 
-import static com.ibm.icu.text.IDNA.CHECK_CONTEXTJ;
-import static com.ibm.icu.text.IDNA.CHECK_CONTEXTO;
-import static com.ibm.icu.text.IDNA.NONTRANSITIONAL_TO_ASCII;
 import static java.net.InetAddress.getByName;
 import static net.jimblackler.jsonschemafriend.MetaSchemaUris.DRAFT_3;
 import static net.jimblackler.jsonschemafriend.MetaSchemaUris.DRAFT_4;
@@ -12,7 +9,6 @@ import static net.jimblackler.jsonschemafriend.MetaSchemaUris.DRAFT_7;
 import com.damnhandy.uri.template.MalformedUriTemplateException;
 import com.damnhandy.uri.template.UriTemplate;
 import com.fasterxml.jackson.core.JsonPointer;
-import com.ibm.icu.text.IDNA;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.UnknownHostException;
@@ -64,13 +60,6 @@ public class FormatChecker {
             if (IDNA_DISALLOWED.contains(String.valueOf(c))) {
               return "Disallowed character " + c;
             }
-          }
-          StringBuilder sb = new StringBuilder();
-          IDNA.Info info = new IDNA.Info();
-          IDNA.getUTS46Instance(CHECK_CONTEXTJ | NONTRANSITIONAL_TO_ASCII | CHECK_CONTEXTO)
-              .nameToASCII(string, sb, info);
-          if (!info.getErrors().isEmpty()) {
-            return info.getErrors().toString();
           }
           break;
         case "relative-json-pointer":
