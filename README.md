@@ -7,13 +7,13 @@ As well as offering standards-compliant validation, it can provide JSON Schema
 loading services to tools, allowing them to explore a correctly built schema
 structure using typed accessors.
 
-# About
-
-## What's different
+# What's different
 this is a modified version of `jsonSchemaFriend`. this library exclude validation 
 of format `idn-hostname`, because it requires us to use `com.ibm.icu` library and it 
 is so huge (approximately 10MB), and in our case, there is no usage of format 
 `idn-hostname`.
+
+# About
 
 An online demonstration
 [is here](https://tryjsonschematypes.appspot.com/#validate).
