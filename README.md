@@ -9,6 +9,12 @@ structure using typed accessors.
 
 # About
 
+## What's different
+this is a modified version of `jsonSchemaFriend`. this library exclude validation 
+of format `idn-hostname`, because it requires us to use `com.ibm.icu` library and it 
+is so huge (approximately 10MB), and in our case, there is no usage of format 
+`idn-hostname`.
+
 An online demonstration
 [is here](https://tryjsonschematypes.appspot.com/#validate).
 
